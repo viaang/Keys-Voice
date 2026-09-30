@@ -40,7 +40,8 @@
         .font-editorial { font-family: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
         .font-logo { font-family: 'Outfit', sans-serif; }
         .font-mission { font-family: 'Bebas Neue', 'SF Pro Display', sans-serif; }
-        .voice-panel { border: 1px solid #d6cec0; border-radius: 4px; background: #ffffff; }
+        .voice-panel { border: 1px solid #d6cec0; border-radius: 8px; background: #ffffff; }
+        .rounded, .rounded-sm, .rounded-xl, .rounded-2xl, .rounded-3xl { border-radius: 8px !important; }
         .voice-reveal { animation: voice-reveal 500ms ease-out both; }
         @keyframes voice-reveal {
             from { opacity: 0; transform: translateY(12px); }
@@ -118,7 +119,7 @@
         </div>
 
         <!-- Mobile Nav Bar -->
-        <div class="md:hidden flex overflow-x-auto border-t border-[#d6cec0] bg-[#d3dce0] px-2 py-2 space-x-1 no-scrollbar">
+        <div class="md:hidden flex overflow-x-auto border-t border-[#d6cec0] bg-[#d3dce0] px-2 py-2 space-x-1 no-scrollbar rounded-b-lg">
             <button onclick="switchTab('spirit')" id="mobile-nav-spirit" class="mobile-nav-btn whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-semibold">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <span>Spirit</span>
@@ -140,13 +141,13 @@
 
     <section class="portal-bg border-b border-[#d6cec0] py-8 sm:py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl bg-[#fdf4e3] border border-[#d6cec0] border-l-4 border-l-brand-blue p-5 sm:p-8 shadow-sm">
+            <div class="max-w-4xl bg-[#fdf4e3] border border-[#d6cec0] border-l-4 border-l-brand-blue p-5 sm:p-8 shadow-sm rounded-lg">
                 <div class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.16em] text-brand-blue mb-3">The Goal of Keys Voice</div>
                 <h1 class="font-mission uppercase text-5xl sm:text-6xl leading-[0.95] tracking-wide text-brand-darkblue">Connecting Student Voices Directly to Campus Action</h1>
                 <p class="text-brand-darkblue text-sm sm:text-base leading-relaxed mt-4 max-w-3xl">
                     Keys Voice was built to ensure no voice in our community goes unheard. Share ideas, vote on spirit weeks and tournaments, and give feedback to help make our campus better.
                 </p>
-                <button onclick="switchTab('voice')" class="mt-5 inline-flex items-center gap-3 bg-brand-yellow hover:bg-brand-gold text-brand-darkblue px-4 py-2.5 text-xs font-bold transition-colors">
+                <button onclick="switchTab('voice')" class="mt-5 inline-flex items-center gap-3 bg-brand-yellow hover:bg-brand-gold text-brand-darkblue px-4 py-2.5 text-xs font-bold transition-colors rounded-lg">
                     Share an idea or feedback <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </div>
@@ -373,7 +374,7 @@
                             <input type="text" class="admin-opt-input w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs" placeholder="Option 1 (e.g. Decades Day)">
                             <input type="text" class="admin-opt-input w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs" placeholder="Option 2 (e.g. Color Wars)">
                         </div>
-                        <button type="button" onclick="addAdminOptionInput()" class="text-xs font-bold text-brand-blue hover:underline flex items-center space-x-1">
+                        <button type="button" onclick="addAdminOptionInput()" class="text-xs font-bold text-brand-blue hover:underline flex items-center space-x-1 rounded-lg">
                             <i class="fa-solid fa-plus-circle"></i>
                             <span>Add Another Option</span>
                         </button>
