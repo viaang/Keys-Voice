@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-slate-50">
+<html lang="en" class="h-full bg-[#d4e1ff]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -19,75 +19,76 @@
                 extend: {
                     colors: {
                         brand: {
-                            blue: '#1E40AF',
-                            darkblue: '#1E1B4B',
-                            gold: '#F59E0B',
-                            yellow: '#FCD34D',
-                            accent: '#3B82F6',
-                            sky: '#E0F2FE'
+                            blue: '#0032A8',
+                            darkblue: '#5B5A5B',
+                            gold: '#D6CEC0',
+                            yellow: '#FCD400',
+                            accent: '#FDF4E3',
+                            sky: '#FDF4E3'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Outfit', 'sans-serif']
+                        sans: ['SF Pro Text', 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+                        display: ['SF Pro Display', 'SF Pro Text', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif']
                     }
                 }
             }
         }
     </script>
     <style>
-        .portal-bg {
-            background: radial-gradient(circle at 90% 10%, rgba(245, 158, 11, 0.1) 0%, transparent 40%),
-                        radial-gradient(circle at 10% 90%, rgba(30, 64, 175, 0.08) 0%, transparent 50%),
-                        #F8FAFC;
+        .portal-bg { background-color: #d4e1ff; }
+        .font-editorial { font-family: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        .font-logo { font-family: 'Outfit', sans-serif; }
+        .font-mission { font-family: 'Bebas Neue', 'SF Pro Display', sans-serif; }
+        .voice-panel { border: 1px solid #d6cec0; border-radius: 4px; background: #ffffff; }
+        .voice-reveal { animation: voice-reveal 500ms ease-out both; }
+        @keyframes voice-reveal {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #F1F5F9; }
-        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 9999px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+        ::-webkit-scrollbar-track { background: #fdf4e3; }
+        ::-webkit-scrollbar-thumb { background: #d6cec0; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #5b5a5b; }
     </style>
 </head>
-<body class="h-full font-sans text-slate-800 flex flex-col min-h-screen">
+<body class="h-full font-sans text-brand-darkblue bg-[#d4e1ff] flex flex-col min-h-screen">
 
-    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <header class="sticky top-0 z-40 bg-[#d4e1ff]/95 backdrop-blur-md border-b border-[#d6cec0]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 sm:h-20">
                 <!-- Logo -->
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('spirit')">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-brand-blue to-brand-gold p-0.5 shadow-md">
-                        <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
-                            <i class="fa-solid fa-bullhorn text-brand-yellow text-lg"></i>
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-sm bg-brand-blue shadow-sm">
+                        <div class="w-full h-full text-white flex items-center justify-center">
+                            <span class="font-mission text-3xl leading-none">K</span>
                         </div>
                     </div>
                     <div>
                         <div class="flex items-center space-x-1.5">
-                            <span class="font-display font-black text-xl sm:text-2xl tracking-tight text-brand-darkblue">KEYS</span>
-                            <span class="font-display font-black text-xl sm:text-2xl tracking-tight text-brand-gold">VOICE</span>
+                            <span class="font-logo font-black text-xl sm:text-2xl tracking-tight text-brand-darkblue">KEYS</span>
+                            <span class="font-logo font-black text-xl sm:text-2xl tracking-tight text-brand-darkblue">VOICE</span>
                         </div>
                         <p class="text-xs text-slate-500 font-medium hidden sm:block">Keys Middle School • Student Voice Portal</p>
                     </div>
                 </div>
 
                 <!-- Navigation Links (Desktop) -->
-                <nav class="hidden md:flex items-center space-x-1 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
+                <nav class="hidden md:flex items-center space-x-1 bg-[#fdf4e3] p-1.5 rounded-sm border border-[#d6cec0]">
                     <button onclick="switchTab('spirit')" id="nav-spirit" class="nav-btn flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all">
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
                         <span>Spirit & Polls</span>
                     </button>
-                    <button onclick="switchTab('ideas')" id="nav-ideas" class="nav-btn flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all">
-                        <i class="fa-solid fa-lightbulb"></i>
-                        <span>Idea Box</span>
-                    </button>
-                    <button onclick="switchTab('feedback')" id="nav-feedback" class="nav-btn flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all">
-                        <i class="fa-solid fa-comment-medical"></i>
-                        <span>Direct Feedback</span>
+                    <button onclick="switchTab('voice')" id="nav-voice" class="nav-btn flex items-center space-x-2 px-3.5 py-2 rounded-sm text-xs font-bold transition-all">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <span>Share Your Voice</span>
                     </button>
                     <button onclick="switchTab('tracker')" id="nav-tracker" class="nav-btn flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all">
                         <i class="fa-solid fa-bars-progress"></i>
                         <span>Action Tracker</span>
                     </button>
                     <!-- Admin Tab (Hidden unless user is authorized Admin) -->
-                    <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn hidden flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold text-amber-700 bg-amber-100/80 border border-amber-300 hover:bg-amber-200 transition-all">
+                    <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn hidden flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold text-brand-darkblue bg-[#fdf4e3] border border-[#d6cec0] hover:bg-[#d6cec0] transition-all">
                         <i class="fa-solid fa-user-shield"></i>
                         <span>Admin Panel</span>
                     </button>
@@ -96,7 +97,7 @@
                 <!-- Auth & User Controls -->
                 <div class="flex items-center space-x-3">
                     <div id="auth-unauthenticated" class="flex items-center space-x-2">
-                        <button onclick="handleGoogleSignIn()" class="inline-flex items-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl shadow-md transition-all">
+                        <button onclick="handleGoogleSignIn()" class="inline-flex items-center space-x-2 bg-brand-yellow hover:bg-brand-gold text-brand-darkblue font-bold text-xs sm:text-sm px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl shadow-md transition-all">
                             <i class="fa-brands fa-google"></i>
                             <span>Sign In</span>
                         </button>
@@ -107,7 +108,7 @@
                             <p id="user-display-name" class="text-xs font-bold text-slate-800">Student</p>
                             <p id="user-display-role" class="text-[10px] text-slate-500 font-semibold">Logged in</p>
                         </div>
-                        <img id="user-avatar" class="w-9 h-9 rounded-full border-2 border-brand-blue shadow-sm" src="https://placehold.co/100x100/1e40af/ffffff?text=KMS" alt="User Avatar">
+                        <img id="user-avatar" class="w-9 h-9 rounded-full border-2 border-brand-blue shadow-sm" src="https://placehold.co/100x100/fdf4e3/5b5a5b?text=KMS" alt="User Avatar">
                         <button onclick="handleSignOut()" title="Sign Out" class="text-slate-400 hover:text-slate-700 p-2 rounded-lg hover:bg-slate-100">
                             <i class="fa-solid fa-right-from-bracket"></i>
                         </button>
@@ -117,45 +118,37 @@
         </div>
 
         <!-- Mobile Nav Bar -->
-        <div class="md:hidden flex overflow-x-auto border-t border-slate-200 bg-white px-2 py-2 space-x-1 no-scrollbar">
+        <div class="md:hidden flex overflow-x-auto border-t border-[#d6cec0] bg-[#d3dce0] px-2 py-2 space-x-1 no-scrollbar">
             <button onclick="switchTab('spirit')" id="mobile-nav-spirit" class="mobile-nav-btn whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-semibold">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <span>Spirit</span>
             </button>
-            <button onclick="switchTab('ideas')" id="mobile-nav-ideas" class="mobile-nav-btn whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-semibold">
-                <i class="fa-solid fa-lightbulb"></i>
-                <span>Ideas</span>
-            </button>
-            <button onclick="switchTab('feedback')" id="mobile-nav-feedback" class="mobile-nav-btn whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-semibold">
-                <i class="fa-solid fa-comment-medical"></i>
-                <span>Feedback</span>
+            <button onclick="switchTab('voice')" id="mobile-nav-voice" class="mobile-nav-btn whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 rounded-sm text-xs font-semibold">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <span>Voice</span>
             </button>
             <button onclick="switchTab('tracker')" id="mobile-nav-tracker" class="mobile-nav-btn whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-semibold">
                 <i class="fa-solid fa-bars-progress"></i>
                 <span>Tracker</span>
             </button>
-            <button onclick="switchTab('admin')" id="mobile-nav-admin" class="mobile-nav-btn hidden whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-100 text-amber-800">
+            <button onclick="switchTab('admin')" id="mobile-nav-admin" class="mobile-nav-btn hidden whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-bold bg-[#fdf4e3] text-brand-darkblue">
                 <i class="fa-solid fa-user-shield"></i>
                 <span>Admin</span>
             </button>
         </div>
     </header>
 
-    <section class="portal-bg border-b border-slate-200/80 py-6 sm:py-8">
+    <section class="portal-bg border-b border-[#d6cec0] py-8 sm:py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-r from-brand-darkblue via-blue-900 to-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden border border-slate-700/50">
-                <div class="relative z-10 space-y-3 max-w-3xl">
-                    <div class="inline-flex items-center space-x-2 bg-brand-yellow/15 backdrop-blur-md px-3.5 py-1 rounded-full border border-brand-yellow/30 text-brand-yellow text-xs font-bold uppercase tracking-wider">
-                        <i class="fa-solid fa-bullseye"></i>
-                        <span>The Goal of Keys Voice</span>
-                    </div>
-                    <h1 class="font-display font-extrabold text-2xl sm:text-3xl leading-tight text-white">
-                        Connecting Student Voices Directly to Campus Action
-                    </h1>
-                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                        Keys Voice was built to ensure no idea stays unheard. Our goal is to connect every student at Keys Middle School directly with Student Council—empowering you to submit suggestions, vote on spirit weeks and tournaments, provide feedback, and track real decisions from proposal to reality.
-                    </p>
-                </div>
+            <div class="max-w-4xl bg-[#fdf4e3] border border-[#d6cec0] border-l-4 border-l-brand-blue p-5 sm:p-8 shadow-sm">
+                <div class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.16em] text-brand-blue mb-3">The Goal of Keys Voice</div>
+                <h1 class="font-mission uppercase text-5xl sm:text-6xl leading-[0.95] tracking-wide text-brand-darkblue">Connecting Student Voices Directly to Campus Action</h1>
+                <p class="text-brand-darkblue text-sm sm:text-base leading-relaxed mt-4 max-w-3xl">
+                    Keys Voice was built to ensure no voice in our community goes unheard. Share ideas, vote on spirit weeks and tournaments, and give feedback to help make our campus better.
+                </p>
+                <button onclick="switchTab('voice')" class="mt-5 inline-flex items-center gap-3 bg-brand-yellow hover:bg-brand-gold text-brand-darkblue px-4 py-2.5 text-xs font-bold transition-colors">
+                    Share an idea or feedback <i class="fa-solid fa-arrow-right"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -178,55 +171,56 @@
             </div>
         </section>
 
-        <!-- TAB 2: Idea Box -->
-        <section id="tab-ideas" class="tab-content hidden space-y-6">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <!-- TAB 2: Share Your Voice -->
+        <section id="tab-voice" class="tab-content hidden space-y-10">
+            <div class="voice-reveal grid lg:grid-cols-[1.2fr_0.8fr] gap-6 items-end border-b border-[#fdf4e3] pb-7">
                 <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">Community Submissions</span>
-                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900">Student Idea Box</h2>
-                    <p class="text-slate-600 text-sm mt-1">Post things you like, things you want, campus improvements, or club ideas!</p>
+                    <h2 class="font-mission text-5xl sm:text-6xl uppercase leading-[0.95] tracking-wide text-brand-darkblue">How can we improve Keys?</h2>
                 </div>
-                <button onclick="openNewIdeaModal()" class="inline-flex items-center space-x-2 bg-brand-blue hover:bg-blue-800 text-white font-bold text-sm px-4 py-2.5 rounded-xl shadow-md transition-all self-start md:self-auto">
-                    <i class="fa-solid fa-plus"></i>
-                    <span>Submit New Idea</span>
-                </button>
+                <p class="text-sm sm:text-base text-brand-darkblue leading-relaxed max-w-xl lg:justify-self-end">
+                    Got a thought about lunch, an idea for an event, or something you’d like us to change? Send it our way.
+                </p>
             </div>
 
-            <!-- Filters -->
-            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3">
-                <div class="flex items-center overflow-x-auto space-x-1.5 pb-2 sm:pb-0 no-scrollbar">
-                    <button onclick="filterIdeas('all')" class="idea-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap bg-brand-blue text-white" data-cat="all">All Ideas</button>
-                    <button onclick="filterIdeas('Things I Like')" class="idea-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100 whitespace-nowrap" data-cat="Things I Like">❤️ Things I Like</button>
-                    <button onclick="filterIdeas('Things I Want')" class="idea-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100 whitespace-nowrap" data-cat="Things I Want">⭐ Things I Want</button>
-                    <button onclick="filterIdeas('Campus Improvement')" class="idea-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100 whitespace-nowrap" data-cat="Campus Improvement">🏫 Campus Improvement</button>
-                    <button onclick="filterIdeas('New Club Idea')" class="idea-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100 whitespace-nowrap" data-cat="New Club Idea">🚀 New Club Idea</button>
-                </div>
-            </div>
-
-            <!-- Ideas Grid -->
-            <div class="grid md:grid-cols-2 gap-4" id="ideas-container"></div>
-        </section>
-
-        <!-- TAB 3: Direct Feedback -->
-        <section id="tab-feedback" class="tab-content hidden space-y-6">
-            <div>
-                <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">Direct Channel</span>
-                <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900">Direct Campus Feedback</h2>
-                <p class="text-slate-600 text-sm mt-1">Give direct feedback on cafeteria food, recess, assemblies, or sports.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-12 gap-8 items-start">
-                <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
-                    <h3 class="font-display font-bold text-lg text-slate-900 flex items-center space-x-2">
-                        <i class="fa-solid fa-pen-to-square text-brand-blue"></i>
-                        <span>Submit Direct Feedback</span>
-                    </h3>
-
-                    <form id="feedback-form" onsubmit="handleFeedbackSubmit(event)" class="space-y-5">
+            <div class="grid lg:grid-cols-2 gap-4 sm:gap-5 items-stretch">
+                <section class="voice-panel p-5 sm:p-7 space-y-5 voice-reveal">
+                    <div class="flex items-center justify-between border-b border-[#fdf4e3] pb-3">
                         <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Category</label>
-                            <select id="fb-topic" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:ring-2 focus:ring-brand-blue outline-none">
-                                <option value="">-- Select Category --</option>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.14em] text-brand-darkblue">01 / Give a shoutout</span>
+                            <h3 class="font-editorial text-2xl text-brand-darkblue mt-1">Someone made your day?</h3>
+                        </div>
+                        <i class="fa-solid fa-heart text-brand-blue"></i>
+                    </div>
+                    <form id="shoutout-form" onsubmit="handleShoutoutSubmit(event)" class="space-y-4">
+                        <div>
+                            <label for="shoutout-recipient" class="block text-[10px] font-bold uppercase tracking-wider text-brand-darkblue mb-1.5">Who is it for?</label>
+                            <input id="shoutout-recipient" type="text" required maxlength="80" placeholder="A student, teacher, or group" class="w-full bg-[#d4e1ff] border border-[#d6cec0] rounded-sm px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-blue">
+                        </div>
+                        <div>
+                            <label for="shoutout-message" class="block text-[10px] font-bold uppercase tracking-wider text-brand-darkblue mb-1.5">What did they do?</label>
+                            <textarea id="shoutout-message" rows="3" required maxlength="500" placeholder="Tell them why you appreciate them." class="w-full bg-[#d4e1ff] border border-[#d6cec0] rounded-sm p-3 text-sm outline-none resize-y focus:ring-2 focus:ring-brand-blue"></textarea>
+                        </div>
+                        <button type="submit" class="inline-flex items-center justify-center gap-3 bg-brand-yellow hover:bg-brand-gold text-brand-darkblue font-bold text-sm px-5 py-3 rounded-sm transition-colors">
+                            Send shoutout <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+
+                </section>
+
+                <section class="voice-panel p-5 sm:p-7 space-y-5 voice-reveal" style="animation-delay: 100ms">
+                    <div class="flex items-center justify-between border-b border-[#fdf4e3] pb-3">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.14em] text-brand-darkblue">02 / Leave feedback</span>
+                            <h3 class="font-editorial text-2xl text-brand-darkblue mt-1">What’s on your mind?</h3>
+                        </div>
+                        <i class="fa-regular fa-message text-brand-blue"></i>
+                    </div>
+
+                    <form id="feedback-form" onsubmit="handleFeedbackSubmit(event)" class="space-y-4">
+                        <div>
+                            <label for="fb-topic" class="block text-[10px] font-bold uppercase tracking-wider text-brand-darkblue mb-1.5">What’s it about?</label>
+                            <select id="fb-topic" required class="w-full bg-[#d4e1ff] border border-[#d6cec0] rounded-sm px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-brand-blue outline-none">
+                                <option value="">Choose a topic</option>
                                 <option value="Campus Events">Campus Events & Assemblies</option>
                                 <option value="Lunch & Recess">Lunch & Recess Options</option>
                                 <option value="Clubs & Sports">Clubs & Intramural Sports</option>
@@ -235,46 +229,47 @@
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">How is this going?</label>
-                            <div class="grid grid-cols-5 gap-1.5 sm:gap-2" id="rating-selector">
-                                <button type="button" onclick="setRating(1)" class="rating-btn flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-red-50 hover:border-red-300 transition-all text-center group cursor-pointer" data-rating="1">
-                                    <span class="text-2xl mb-0.5 group-hover:scale-110 transition-transform">🙁</span>
-                                    <span class="text-[10px] sm:text-xs font-bold text-slate-600 group-hover:text-red-700">Needs Work</span>
-                                </button>
-                                <button type="button" onclick="setRating(2)" class="rating-btn flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-amber-50 hover:border-amber-300 transition-all text-center group cursor-pointer" data-rating="2">
-                                    <span class="text-2xl mb-0.5 group-hover:scale-110 transition-transform">😐</span>
-                                    <span class="text-[10px] sm:text-xs font-bold text-slate-600 group-hover:text-amber-700">Okay</span>
-                                </button>
-                                <button type="button" onclick="setRating(3)" class="rating-btn flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-300 transition-all text-center group cursor-pointer" data-rating="3">
-                                    <span class="text-2xl mb-0.5 group-hover:scale-110 transition-transform">🙂</span>
-                                    <span class="text-[10px] sm:text-xs font-bold text-slate-600 group-hover:text-blue-700">Good</span>
-                                </button>
-                                <button type="button" onclick="setRating(4)" class="rating-btn flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-emerald-50 hover:border-emerald-300 transition-all text-center group cursor-pointer" data-rating="4">
-                                    <span class="text-2xl mb-0.5 group-hover:scale-110 transition-transform">😄</span>
-                                    <span class="text-[10px] sm:text-xs font-bold text-slate-600 group-hover:text-emerald-700">Great</span>
-                                </button>
-                                <button type="button" onclick="setRating(5)" class="rating-btn flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-purple-50 hover:border-purple-300 transition-all text-center group cursor-pointer" data-rating="5">
-                                    <span class="text-2xl mb-0.5 group-hover:scale-110 transition-transform">🎉</span>
-                                    <span class="text-[10px] sm:text-xs font-bold text-slate-600 group-hover:text-purple-700">Awesome!</span>
+                            <label for="fb-comments" class="block text-[10px] font-bold uppercase tracking-wider text-brand-darkblue mb-1.5">Tell us a little more</label>
+                            <textarea id="fb-comments" rows="3" required placeholder="Write what you really think. We’re listening." class="w-full bg-[#d4e1ff] border border-[#d6cec0] rounded-sm p-3 text-sm focus:ring-2 focus:ring-brand-blue outline-none resize-y"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brand-yellow hover:bg-brand-gold text-brand-darkblue font-bold text-sm px-5 py-3 rounded-sm transition-colors">
+                            Send feedback <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </section>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 border-t border-[#fdf4e3] pt-7">
+                <section class="lg:col-span-7 space-y-5">
+                    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.14em] text-brand-blue">Community board</span>
+                            <div class="flex flex-wrap items-center gap-3 mt-1">
+                                <h3 class="font-editorial text-3xl text-brand-darkblue">Ideas from students</h3>
+                                <button onclick="openNewIdeaModal()" class="inline-flex items-center gap-2 bg-brand-yellow hover:bg-brand-gold text-brand-darkblue px-3 py-2 text-xs font-bold rounded-sm transition-colors">
+                                    <i class="fa-solid fa-plus"></i> Share an idea
                                 </button>
                             </div>
                         </div>
-
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Your Comments</label>
-                            <textarea id="fb-comments" rows="4" required placeholder="What went well? What can be improved?" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-brand-blue outline-none resize-none"></textarea>
+                        <div class="flex items-center gap-2 overflow-x-auto pb-1">
+                            <button onclick="filterIdeas('all')" class="idea-filter-btn px-3 py-1.5 rounded-sm text-[11px] font-bold whitespace-nowrap bg-brand-blue text-white" data-cat="all">All</button>
+                            <button onclick="filterIdeas('Things I Like')" class="idea-filter-btn px-3 py-1.5 rounded-sm text-[11px] font-semibold text-brand-darkblue hover:bg-[#fdf4e3] whitespace-nowrap" data-cat="Things I Like">Things I like</button>
+                            <button onclick="filterIdeas('Things I Want')" class="idea-filter-btn px-3 py-1.5 rounded-sm text-[11px] font-semibold text-brand-darkblue hover:bg-[#fdf4e3] whitespace-nowrap" data-cat="Things I Want">Things I want</button>
+                            <button onclick="filterIdeas('Campus Improvement')" class="idea-filter-btn px-3 py-1.5 rounded-sm text-[11px] font-semibold text-brand-darkblue hover:bg-[#fdf4e3] whitespace-nowrap" data-cat="Campus Improvement">Campus</button>
+                            <button onclick="filterIdeas('New Club Idea')" class="idea-filter-btn px-3 py-1.5 rounded-sm text-[11px] font-semibold text-brand-darkblue hover:bg-[#fdf4e3] whitespace-nowrap" data-cat="New Club Idea">Clubs</button>
                         </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-3" id="ideas-container"></div>
+                </section>
 
-                        <button type="submit" class="w-full bg-brand-blue hover:bg-blue-800 text-white font-bold text-sm py-3 rounded-xl shadow-md transition-all">
-                            Submit Feedback
-                        </button>
-                    </form>
-                </div>
-
-                <div class="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
-                    <h3 class="font-display font-bold text-lg text-slate-900">Recent Student Reactions</h3>
-                    <div class="space-y-3 max-h-[400px] overflow-y-auto pr-1" id="feedback-feed-container"></div>
-                </div>
+                <section class="lg:col-span-5 space-y-5 border-t lg:border-t-0 lg:border-l border-[#fdf4e3] pt-6 lg:pt-0 lg:pl-7">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.14em] text-brand-blue">Campus pulse</span>
+                        <h3 class="font-editorial text-3xl text-brand-darkblue mt-1">What students are saying</h3>
+                    </div>
+                    <div class="space-y-3 max-h-[560px] overflow-y-auto pr-1" id="feedback-feed-container"></div>
+                </section>
             </div>
         </section>
 
@@ -288,10 +283,10 @@
 
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Column 1: Under Review -->
-                <div class="bg-amber-50/60 rounded-2xl p-5 border border-amber-200/60 space-y-4">
-                    <div class="flex items-center justify-between pb-3 border-b border-amber-200">
+                <div class="bg-[#d3dce0] rounded-sm p-5 border border-[#d6cec0] space-y-4">
+                    <div class="flex items-center justify-between pb-3 border-b border-[#d6cec0]">
                         <h3 class="font-display font-bold text-slate-900 text-sm flex items-center space-x-2">
-                            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-brand-gold"></span>
                             <span>Under Review</span>
                         </h3>
                     </div>
@@ -299,10 +294,10 @@
                 </div>
 
                 <!-- Column 2: In Progress -->
-                <div class="bg-blue-50/60 rounded-2xl p-5 border border-blue-200/60 space-y-4">
-                    <div class="flex items-center justify-between pb-3 border-b border-blue-200">
+                <div class="bg-[#fdf4e3] rounded-sm p-5 border border-[#d6cec0] space-y-4">
+                    <div class="flex items-center justify-between pb-3 border-b border-[#d6cec0]">
                         <h3 class="font-display font-bold text-slate-900 text-sm flex items-center space-x-2">
-                            <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-brand-blue animate-pulse"></span>
                             <span>In Progress</span>
                         </h3>
                     </div>
@@ -310,10 +305,10 @@
                 </div>
 
                 <!-- Column 3: Approved / Done -->
-                <div class="bg-emerald-50/60 rounded-2xl p-5 border border-emerald-200/60 space-y-4">
-                    <div class="flex items-center justify-between pb-3 border-b border-emerald-200">
+                <div class="bg-white rounded-sm p-5 border border-[#d6cec0] space-y-4">
+                    <div class="flex items-center justify-between pb-3 border-b border-[#d6cec0]">
                         <h3 class="font-display font-bold text-slate-900 text-sm flex items-center space-x-2">
-                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-brand-darkblue"></span>
                             <span>Completed & Approved</span>
                         </h3>
                     </div>
@@ -324,9 +319,9 @@
 
         <!-- TAB 5: ADMIN DASHBOARD (Restricted to designated Google Accounts) -->
         <section id="tab-admin" class="tab-content hidden space-y-8">
-            <div class="bg-amber-50 rounded-2xl p-6 border border-amber-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div class="bg-[#d3dce0] rounded-sm p-6 border border-[#d6cec0] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div class="space-y-1">
-                    <div class="inline-flex items-center space-x-2 bg-amber-200 text-amber-900 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                    <div class="inline-flex items-center space-x-2 bg-[#fdf4e3] text-brand-darkblue text-xs font-extrabold px-3 py-1 rounded-sm uppercase tracking-wider">
                         <i class="fa-solid fa-lock"></i>
                         <span>Admin Access Granted</span>
                     </div>
@@ -384,7 +379,7 @@
                         </button>
                     </div>
 
-                    <button type="submit" class="bg-brand-blue hover:bg-blue-800 text-white font-bold text-xs px-5 py-3 rounded-xl shadow-md">
+                    <button type="submit" class="bg-brand-yellow hover:bg-brand-gold text-brand-darkblue font-bold text-xs px-5 py-3 rounded-xl shadow-md">
                         Launch Poll to Students
                     </button>
                 </form>
@@ -426,7 +421,7 @@
             <form id="new-idea-form" onsubmit="handleNewIdeaSubmit(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Category</label>
-                    <select id="idea-category" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-medium outline-none">
+                    <select id="idea-category" required class="w-full bg-[#d3dce0] border border-[#d6cec0] rounded-xl px-3.5 py-2.5 text-sm font-medium outline-none">
                         <option value="Things I Like">❤️ Things I Like (Positive feedback)</option>
                         <option value="Things I Want">⭐ Things I Want (New events or activities)</option>
                         <option value="Campus Improvement">🏫 Campus Improvement (School facilities / recess)</option>
@@ -436,22 +431,23 @@
 
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Idea Title</label>
-                    <input type="text" id="idea-title" required placeholder="e.g. Lunchtime Volleyball Net Setup" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm outline-none">
+                    <input type="text" id="idea-title" required placeholder="e.g. Lunchtime Volleyball Net Setup" class="w-full bg-[#d3dce0] border border-[#d6cec0] rounded-xl px-3.5 py-2.5 text-sm outline-none">
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Details</label>
-                    <textarea id="idea-desc" rows="3" required placeholder="Explain your idea and how it improves KMS..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm outline-none resize-none"></textarea>
+                    <textarea id="idea-desc" rows="3" required placeholder="Explain your idea and how it improves KMS..." class="w-full bg-[#d3dce0] border border-[#d6cec0] rounded-xl p-3 text-sm outline-none resize-none"></textarea>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Name (Optional)</label>
-                        <input type="text" id="idea-author" placeholder="e.g. Alex M." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none">
+                        <input type="text" id="idea-author" placeholder="e.g. bob. D" class="w-full bg-[#d3dce0] border border-[#d6cec0] rounded-xl px-3 py-2 text-xs outline-none">
                     </div>
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Grade Level</label>
-                        <select id="idea-grade" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none">
+                        <select id="idea-grade" class="w-full bg-[#d3dce0] border border-[#d6cec0] rounded-xl px-3 py-2 text-xs outline-none">
+                            <option value="5th Grade">5th Grade</option>
                             <option value="6th Grade">6th Grade</option>
                             <option value="7th Grade" selected>7th Grade</option>
                             <option value="8th Grade">8th Grade</option>
@@ -461,79 +457,9 @@
 
                 <div class="pt-2 flex items-center justify-end space-x-3">
                     <button type="button" onclick="closeNewIdeaModal()" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-500 hover:bg-slate-100">Cancel</button>
-                    <button type="submit" class="bg-brand-blue hover:bg-blue-800 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md">Post Idea</button>
+                    <button type="submit" class="bg-brand-yellow hover:bg-brand-gold text-brand-darkblue font-bold text-xs px-5 py-2.5 rounded-xl shadow-md">Post Idea</button>
                 </div>
             </form>
-        </div>
-    </div>
-
-    <!-- MODAL: Auth Fallback / Authorized Domain Warning Modal -->
-    <div id="auth-fallback-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-100 space-y-5">
-            <div class="flex justify-between items-start">
-                <div class="flex items-center space-x-3 text-amber-600">
-                    <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-shield-cat text-lg"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-display font-bold text-lg text-slate-900">Sign In & Dev Access</h3>
-                        <p class="text-xs text-amber-700 font-medium">Domain Authorization & Preview Access</p>
-                    </div>
-                </div>
-                <button onclick="closeAuthFallbackModal()" class="text-slate-400 hover:text-slate-600 p-1">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-
-            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-3.5 space-y-1.5 text-xs text-amber-900">
-                <div class="font-bold flex items-center space-x-1.5">
-                    <i class="fa-solid fa-triangle-exclamation text-amber-600"></i>
-                    <span>Firebase Authorized Domain Info</span>
-                </div>
-                <p class="text-[11px] leading-relaxed text-amber-800">
-                    To enable live Google OAuth on a custom web domain, open <strong>Firebase Console &gt; Authentication &gt; Settings &gt; Authorized Domains</strong> and add your current web domain.
-                </p>
-            </div>
-
-            <div class="space-y-3">
-                <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Select Test Account to Continue:</p>
-                
-                <button onclick="selectDemoUser('president@keys.edu', 'Council President (Admin)', true)" class="w-full flex items-center justify-between p-3.5 rounded-2xl border border-amber-300 bg-amber-50/80 hover:bg-amber-100 transition-all text-left">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-9 h-9 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs">
-                            <i class="fa-solid fa-user-shield"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs font-bold text-slate-900">Sign in as Council Admin</p>
-                            <p class="text-[10px] text-amber-800">president@keys.edu • Unlocks Admin Controls</p>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-chevron-right text-xs text-amber-600"></i>
-                </button>
-
-                <button onclick="selectDemoUser('student@keys.edu', 'Student User', false)" class="w-full flex items-center justify-between p-3.5 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-slate-100 transition-all text-left">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-9 h-9 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-xs">
-                            <i class="fa-solid fa-user-graduate"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs font-bold text-slate-900">Sign in as KMS Student</p>
-                            <p class="text-[10px] text-slate-500">student@keys.edu • Voting & Submissions</p>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
-                </button>
-            </div>
-
-            <div class="pt-2 border-t border-slate-100">
-                <form onsubmit="handleCustomEmailSignIn(event)" class="space-y-2">
-                    <label class="block text-[11px] font-bold uppercase text-slate-500">Or Enter Custom Google Email:</label>
-                    <div class="flex space-x-2">
-                        <input type="email" id="custom-auth-email" required placeholder="your.name@keys.edu" class="flex-grow bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:ring-2 focus:ring-brand-blue">
-                        <button type="submit" class="bg-slate-900 text-white font-bold text-xs px-3.5 py-2 rounded-xl hover:bg-slate-800 transition-all">Sign In</button>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
 
@@ -546,13 +472,9 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="flex items-center space-x-2">
-                <span class="font-display font-black text-brand-darkblue text-lg">KEYS VOICE</span>
-                <span class="text-xs text-slate-400">| Keys Middle School Student Portal</span>
-            </div>
-            <p class="text-xs text-slate-500">Driven by KMS Student Council</p>
+    <footer class="bg-[#d4e1ff] border-t border-[#d6cec0] py-5 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-brand-darkblue">Keys Voice is a student run app.</p>
         </div>
     </footer>
 
@@ -563,202 +485,116 @@
             signInWithPopup, 
             GoogleAuthProvider, 
             signOut, 
-            onAuthStateChanged, 
-            signInAnonymously,
-            signInWithCustomToken
+            onAuthStateChanged
         } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { 
             getFirestore, 
             collection, 
             doc, 
-            setDoc, 
-            getDoc, 
-            getDocs, 
             addDoc, 
             updateDoc, 
             deleteDoc, 
-            onSnapshot 
+            onSnapshot,
+            runTransaction
         } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Global Firebase Configuration injected by platform
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'keys-voice-app';
+        // Firebase web config from Project settings > Your apps.
         const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-            apiKey: "AIzaSyDummyKeyForTestingOnly",
-            authDomain: "keys-voice.firebaseapp.com",
-            projectId: "keys-voice",
-            storageBucket: "keys-voice.appspot.com",
-            messagingSenderId: "123456789",
-            appId: "1:123456789:web:abcdef"
+            apiKey: 'AIzaSyAAk-VgR2UH1nAD82W5JB0-N-NpoldcH-E',
+            authDomain: 'keys-voice.firebaseapp.com',
+            projectId: 'keys-voice',
+            storageBucket: 'keys-voice.firebasestorage.app',
+            messagingSenderId: '24569667242',
+            appId: '1:24569667242:web:f8e626c0f4d9fcaa133ad3'
         };
+        const hasFirebaseConfig = Boolean(firebaseConfig?.apiKey && firebaseConfig.projectId && firebaseConfig.appId);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'keys-voice-app';
+        const app = hasFirebaseConfig ? initializeApp(firebaseConfig) : null;
+        const auth = app ? getAuth(app) : null;
+        const db = app ? getFirestore(app) : null;
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        // DESIGNATED ADMIN GOOGLE ACCOUNTS
+        // CODE MAP
+        // - School domain and admin allowlist: SCHOOL_EMAIL_DOMAIN and ADMIN_EMAILS below.
+        // - Google sign-in and domain validation: handleGoogleSignIn and onAuthStateChanged.
+        // - Admin button visibility: updateAuthUI; direct admin-tab guard: switchTab.
+        // - Firebase project settings: firebaseConfig above; database access rules are managed in Firebase Console.
+        const SCHOOL_EMAIL_DOMAIN = '@keysschool.org';
         const ADMIN_EMAILS = [
-            'studentcouncil@keys.edu',
-            'president@keys.edu',
-            'advisor@keys.edu',
-            'admin@keys.edu'
+            'viaang7@keysschool.org',
+            'cassiag7@keysschool.org',
+            'mjarrufatmarques@keysschool.org',
+            'dlieu@keysschool.org'
         ];
 
-        // Sentiment badge configurations
-        const RATING_INFO = {
-            1: { emoji: '🙁', label: 'Needs Work', color: 'bg-red-50 text-red-700 border-red-200' },
-            2: { emoji: '😐', label: 'Okay', color: 'bg-amber-50 text-amber-700 border-amber-200' },
-            3: { emoji: '🙂', label: 'Good', color: 'bg-blue-50 text-blue-700 border-blue-200' },
-            4: { emoji: '😄', label: 'Great', color: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
-            5: { emoji: '🎉', label: 'Awesome!', color: 'bg-purple-50 text-purple-700 border-purple-200' }
-        };
+        function isSchoolEmail(email) {
+            return typeof email === 'string' && email.trim().toLowerCase().endsWith(SCHOOL_EMAIL_DOMAIN);
+        }
 
         // Global state
         let currentUser = null;
         let isAdmin = false;
         let currentFilter = 'all';
-        let selectedRating = 3;
-        let usingLocalStorage = false;
-
-        // Default seed data if Firestore permissions are unavailable
-        const DEFAULT_POLLS = [
-            {
-                id: 'poll-1',
-                type: 'spirit',
-                title: 'Next Friday Spirit Week Theme',
-                options: [
-                    { label: 'Decades Day (70s/80s/90s)', votes: 42 },
-                    { label: 'Color Wars (Grade vs Grade)', votes: 68 },
-                    { label: 'Pajama & Cozy Day', votes: 55 }
-                ],
-                active: true,
-                createdAt: Date.now()
-            }
-        ];
-
-        const DEFAULT_IDEAS = [
-            {
-                id: 'idea-1',
-                title: 'Lunchtime 3v3 Basketball Tournament',
-                desc: 'Organize a structured 3v3 tournament during Friday long recess with Student Council referees.',
-                category: 'Things I Want',
-                author: 'Maya S.',
-                grade: '7th Grade',
-                upvotes: 24,
-                status: 'In Progress',
-                createdAt: Date.now() - 86400000
-            },
-            {
-                id: 'idea-2',
-                title: 'Outdoor Chill & Board Game Station',
-                desc: 'Add shady benches and check-out chess/connect-four sets for students who want quiet recess options.',
-                category: 'Campus Improvement',
-                author: 'Jordan T.',
-                grade: '8th Grade',
-                upvotes: 19,
-                status: 'Under Review',
-                createdAt: Date.now() - 172800000
-            }
-        ];
-
-        const DEFAULT_FEEDBACK = [
-            {
-                id: 'fb-1',
-                topic: 'Lunch & Recess',
-                rating: 5,
-                comments: 'The new taco tuesday options at lunch were amazing! More hot options please.',
-                author: 'Student',
-                createdAt: Date.now() - 43200000
-            }
-        ];
-
         let activePolls = [];
         let studentIdeas = [];
         let feedbackList = [];
+        let unsubscribeRealtimeListeners = [];
 
         // Helper Firestore Paths
         const getPublicCollPath = (collName) => collection(db, 'artifacts', appId, 'public', 'data', collName);
         const getPublicDocPath = (collName, docId) => doc(db, 'artifacts', appId, 'public', 'data', collName, docId);
 
-        window.addEventListener('DOMContentLoaded', async () => {
-            // Load and display local storage data immediately so info persists on refresh
-            loadLocalStorageData();
+        window.addEventListener('DOMContentLoaded', () => {
             renderAllViews();
 
-            // Authentication initialization
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch (e) {
-                console.warn('Auth fallback to anonymous', e);
-                try { await signInAnonymously(auth); } catch(err){}
+            if (!hasFirebaseConfig) {
+                showToast('Add your Firebase web app settings to enable sign-in and shared saving.');
+            } else {
+                onAuthStateChanged(auth, (user) => {
+                    if (user && (user.isAnonymous || !isSchoolEmail(user.email))) {
+                        currentUser = null;
+                        isAdmin = false;
+                        stopRealtimeListeners();
+                        updateAuthUI();
+                        activePolls = [];
+                        studentIdeas = [];
+                        feedbackList = [];
+                        renderAllViews();
+                        signOut(auth).catch(error => console.warn('Could not sign out unauthorized account:', error));
+                        if (!user.isAnonymous) showToast('Sign-in is limited to @keysschool.org accounts.');
+                        return;
+                    }
+
+                    currentUser = user;
+                    updateAuthUI();
+                    if (user) {
+                        setupRealtimeListeners();
+                    } else {
+                        stopRealtimeListeners();
+                        activePolls = [];
+                        studentIdeas = [];
+                        feedbackList = [];
+                        renderAllViews();
+                    }
+                });
             }
-
-            onAuthStateChanged(auth, (user) => {
-                currentUser = user;
-                updateAuthUI();
-                if (user) {
-                    setupRealtimeListeners();
-                }
-            });
-
-            // Initialize rating buttons default selection
-            setRating(3);
 
             // Tab setup
             switchTab('spirit');
         });
 
-        // Local Storage Helper Functions
-        function loadLocalStorageData() {
-            try {
-                const storedPolls = localStorage.getItem('kms_polls');
-                const storedIdeas = localStorage.getItem('kms_ideas');
-                const storedFeedback = localStorage.getItem('kms_feedback');
-
-                // Initialize with default seeds only if no stored key exists yet
-                if (storedPolls !== null) {
-                    activePolls = JSON.parse(storedPolls);
-                } else {
-                    activePolls = [...DEFAULT_POLLS];
-                    localStorage.setItem('kms_polls', JSON.stringify(activePolls));
-                }
-
-                if (storedIdeas !== null) {
-                    studentIdeas = JSON.parse(storedIdeas);
-                } else {
-                    studentIdeas = [...DEFAULT_IDEAS];
-                    localStorage.setItem('kms_ideas', JSON.stringify(studentIdeas));
-                }
-
-                if (storedFeedback !== null) {
-                    feedbackList = JSON.parse(storedFeedback);
-                } else {
-                    feedbackList = [...DEFAULT_FEEDBACK];
-                    localStorage.setItem('kms_feedback', JSON.stringify(feedbackList));
-                }
-            } catch (e) {
-                console.warn("LocalStorage read error:", e);
-                activePolls = [...DEFAULT_POLLS];
-                studentIdeas = [...DEFAULT_IDEAS];
-                feedbackList = [...DEFAULT_FEEDBACK];
-            }
+        function stopRealtimeListeners() {
+            unsubscribeRealtimeListeners.forEach(unsubscribe => unsubscribe());
+            unsubscribeRealtimeListeners = [];
         }
 
-        function saveLocalStorageData() {
-            try {
-                localStorage.setItem('kms_polls', JSON.stringify(activePolls));
-                localStorage.setItem('kms_ideas', JSON.stringify(studentIdeas));
-                localStorage.setItem('kms_feedback', JSON.stringify(feedbackList));
-            } catch(e) { console.warn(e); }
-        }
-
-        function enableLocalStorageFallback() {
-            usingLocalStorage = true;
-            loadLocalStorageData();
-            renderAllViews();
+        function reportFirestoreError(action, error) {
+            console.error(`Firestore ${action} failed:`, error);
+            const detail = error?.code === 'permission-denied'
+                ? 'Check Firestore rules.'
+                : error?.code === 'unauthenticated'
+                    ? 'Sign in with a school account and try again.'
+                    : 'Check your connection and Firebase setup.';
+            showToast(`${action} failed. ${detail}`);
         }
 
         function renderAllViews() {
@@ -777,49 +613,24 @@
 
         // Google Sign-In Function
         window.handleGoogleSignIn = async function() {
+            if (!auth) {
+                showToast('Add your Firebase web app settings before signing in.');
+                return;
+            }
             const provider = new GoogleAuthProvider();
+            provider.setCustomParameters({ hd: 'keysschool.org', prompt: 'select_account' });
             try {
                 const result = await signInWithPopup(auth, provider);
+                if (!isSchoolEmail(result.user.email)) {
+                    await signOut(auth);
+                    showToast('Sign-in is limited to @keysschool.org accounts.');
+                    return;
+                }
                 showToast(`Signed in as ${result.user.displayName || result.user.email}`);
             } catch (error) {
-                console.warn("Google OAuth standard login bypassed due to domain settings:", error.code || error);
-                openAuthFallbackModal();
+                console.warn('Google sign-in failed:', error.code || error);
+                showToast('Google sign-in failed. Please try again.');
             }
-        };
-
-        window.openAuthFallbackModal = function() {
-            const modal = document.getElementById('auth-fallback-modal');
-            if (modal) modal.classList.remove('hidden');
-        };
-
-        window.closeAuthFallbackModal = function() {
-            const modal = document.getElementById('auth-fallback-modal');
-            if (modal) modal.classList.add('hidden');
-        };
-
-        window.selectDemoUser = function(email, displayName, isAdminAccount) {
-            currentUser = {
-                uid: 'demo-' + (isAdminAccount ? 'admin' : 'student') + '-' + Date.now(),
-                displayName: displayName,
-                email: email,
-                photoURL: `https://placehold.co/100x100/${isAdminAccount ? 'f59e0b' : '1e40af'}/ffffff?text=${email[0].toUpperCase()}`
-            };
-            closeAuthFallbackModal();
-            updateAuthUI();
-            setupRealtimeListeners();
-            showToast(`Signed in as ${displayName}`);
-        };
-
-        window.handleCustomEmailSignIn = function(e) {
-            e.preventDefault();
-            const emailInput = document.getElementById('custom-auth-email');
-            const email = emailInput.value.trim();
-            if (!email) return;
-
-            const name = email.split('@')[0].replace('.', ' ');
-            const isAdminEmail = ADMIN_EMAILS.some(eStr => email.toLowerCase().includes(eStr)) || email.toLowerCase().includes('admin');
-
-            selectDemoUser(email, name.charAt(0).toUpperCase() + name.slice(1), isAdminEmail);
         };
 
         window.handleSignOut = async function() {
@@ -844,8 +655,8 @@
                 document.getElementById('user-display-name').innerText = currentUser.displayName || currentUser.email || 'Student';
                 
                 // Check if email matches Admin list
-                const userEmail = (currentUser.email || '').toLowerCase();
-                isAdmin = ADMIN_EMAILS.some(e => userEmail.includes(e)) || userEmail.endsWith('@admin.com') || currentUser.email === 'president@keys.edu';
+                const userEmail = (currentUser.email || '').trim().toLowerCase();
+                isAdmin = isSchoolEmail(userEmail) && ADMIN_EMAILS.includes(userEmail);
 
                 if (isAdmin) {
                     document.getElementById('user-display-role').innerText = '🔑 Council Admin';
@@ -870,49 +681,23 @@
         }
 
         function setupRealtimeListeners() {
-            if (!currentUser) return;
+            if (!currentUser || !db) return;
+            stopRealtimeListeners();
 
-            loadLocalStorageData();
-            renderAllViews();
-
-            // 1. Listen for Active Polls (Only overwrite if snapshot contains active remote data)
-            onSnapshot(getPublicCollPath('polls'), (snapshot) => {
-                if (!snapshot.empty) {
-                    usingLocalStorage = false;
-                    activePolls = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    saveLocalStorageData();
+            unsubscribeRealtimeListeners = [
+                onSnapshot(getPublicCollPath('polls'), snapshot => {
+                    activePolls = snapshot.docs.map(item => ({ id: item.id, ...item.data() }));
                     renderAllViews();
-                }
-            }, (err) => {
-                console.warn("Polls listener permission fallback to LocalStorage:", err.message);
-                enableLocalStorageFallback();
-            });
-
-            // 2. Listen for Ideas
-            onSnapshot(getPublicCollPath('ideas'), (snapshot) => {
-                if (!snapshot.empty) {
-                    usingLocalStorage = false;
-                    studentIdeas = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    saveLocalStorageData();
+                }, error => reportFirestoreError('Loading polls', error)),
+                onSnapshot(getPublicCollPath('ideas'), snapshot => {
+                    studentIdeas = snapshot.docs.map(item => ({ id: item.id, ...item.data() }));
                     renderAllViews();
-                }
-            }, (err) => {
-                console.warn("Ideas listener permission fallback to LocalStorage:", err.message);
-                enableLocalStorageFallback();
-            });
-
-            // 3. Listen for Feedback
-            onSnapshot(getPublicCollPath('feedback'), (snapshot) => {
-                if (!snapshot.empty) {
-                    usingLocalStorage = false;
-                    feedbackList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    saveLocalStorageData();
+                }, error => reportFirestoreError('Loading ideas', error)),
+                onSnapshot(getPublicCollPath('feedback'), snapshot => {
+                    feedbackList = snapshot.docs.map(item => ({ id: item.id, ...item.data() }));
                     renderAllViews();
-                }
-            }, (err) => {
-                console.warn("Feedback listener permission fallback to LocalStorage:", err.message);
-                enableLocalStorageFallback();
-            });
+                }, error => reportFirestoreError('Loading feedback', error))
+            ];
         }
 
         function renderActivePolls() {
@@ -920,18 +705,18 @@
 
             if (activePolls.length === 0) {
                 container.innerHTML = `
-                    <div class="bg-white rounded-3xl p-8 sm:p-12 text-center border border-slate-200 shadow-sm max-w-2xl mx-auto space-y-4">
-                        <div class="w-16 h-16 bg-amber-50 text-brand-gold rounded-2xl flex items-center justify-center mx-auto text-2xl">
+                    <div class="bg-white rounded-sm p-8 sm:p-12 text-center border border-[#fdf4e3] max-w-2xl mx-auto space-y-4">
+                        <div class="w-16 h-16 bg-[#d3dce0] text-brand-darkblue rounded-sm flex items-center justify-center mx-auto text-2xl">
                             <i class="fa-solid fa-calendar-xmark"></i>
                         </div>
-                        <h3 class="font-display font-extrabold text-xl text-slate-900">No Active Voting Right Now</h3>
-                        <p class="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-md mx-auto">
-                            There are currently no active Spirit Weeks or Tournament polls taking place. Check back soon for our next school event, or submit an idea in the Idea Box!
+                        <h3 class="font-editorial text-2xl text-brand-darkblue">No active poll right now</h3>
+                        <p class="text-xs sm:text-sm text-brand-darkblue leading-relaxed max-w-md mx-auto">
+                            There are currently no active Spirit Weeks or Tournament polls taking place. Check back soon for our next school event, or share an idea or feedback.
                         </p>
                         <div class="pt-2">
-                            <button onclick="switchTab('ideas')" class="inline-flex items-center space-x-2 bg-brand-blue text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md hover:bg-blue-800">
+                            <button onclick="switchTab('voice')" class="inline-flex items-center space-x-2 bg-brand-yellow text-brand-darkblue px-4 py-2.5 rounded-sm text-xs font-bold hover:bg-brand-gold">
                                 <i class="fa-solid fa-lightbulb"></i>
-                                <span>Go to Idea Box</span>
+                                <span>Share Your Voice</span>
                             </button>
                         </div>
                     </div>
@@ -943,33 +728,33 @@
                 const totalVotes = poll.options.reduce((sum, opt) => sum + (opt.votes || 0), 0);
 
                 return `
-                    <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-                        <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+                    <div class="voice-panel p-5 sm:p-7 space-y-6">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#fdf4e3]">
                             <div class="flex items-center space-x-3">
-                                <div class="p-3 bg-blue-50 text-brand-blue rounded-xl text-xl">
+                                <div class="p-3 bg-[#fdf4e3] text-brand-blue rounded-sm text-xl">
                                     <i class="${poll.type === 'spirit' ? 'fa-solid fa-shirt' : 'fa-solid fa-trophy'}"></i>
                                 </div>
                                 <div>
                                     <span class="text-[10px] font-bold uppercase tracking-wider text-brand-blue">${poll.type === 'spirit' ? 'Spirit Week Poll' : 'Tournament Bracket Poll'}</span>
-                                    <h3 class="font-display font-bold text-lg text-slate-900">${poll.title}</h3>
+                                    <h3 class="font-editorial text-2xl text-brand-darkblue">${poll.title}</h3>
                                 </div>
                             </div>
-                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">${totalVotes} total votes</span>
+                            <span class="text-[10px] font-bold text-brand-darkblue bg-[#d3dce0] px-3 py-1.5 rounded-sm">${totalVotes} total votes</span>
                         </div>
 
                         <div class="grid sm:grid-cols-2 gap-4">
                             ${poll.options.map((opt, idx) => {
                                 const pct = totalVotes > 0 ? Math.round(((opt.votes || 0) / totalVotes) * 100) : 0;
                                 return `
-                                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                                    <div class="bg-[#fdf4e3] p-4 rounded-sm border border-[#d6cec0] space-y-3">
                                         <div class="flex justify-between items-center text-xs font-bold">
                                             <span class="text-slate-800">${opt.label}</span>
                                             <span class="text-brand-blue">${pct}% (${opt.votes || 0})</span>
                                         </div>
-                                        <div class="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
-                                            <div class="bg-brand-blue h-2 rounded-full transition-all duration-500" style="width: ${pct}%"></div>
+                                        <div class="w-full bg-white rounded-full h-1.5 overflow-hidden">
+                                            <div class="bg-brand-blue h-1.5 rounded-full transition-all duration-500" style="width: ${pct}%"></div>
                                         </div>
-                                        <button onclick="voteOnPoll('${poll.id}', ${idx})" class="w-full py-2 bg-white border border-slate-200 text-slate-700 hover:bg-brand-blue hover:text-white rounded-lg text-xs font-bold shadow-sm transition-all">
+                                        <button onclick="voteOnPoll('${poll.id}', ${idx})" class="w-full py-2 bg-white border border-brand-darkblue/30 text-brand-darkblue hover:bg-brand-yellow rounded-sm text-xs font-bold transition-all">
                                             Vote for Option
                                         </button>
                                     </div>
@@ -983,27 +768,26 @@
 
         // Poll voting function
         window.voteOnPoll = async function(pollId, optionIndex) {
-            if (!currentUser) return;
-            const pollDoc = activePolls.find(p => p.id === pollId);
-            if (!pollDoc) return;
+            if (!currentUser || !db) {
+                showToast('Sign in with your school account to vote.');
+                return;
+            }
 
-            const updatedOptions = [...pollDoc.options];
-            updatedOptions[optionIndex].votes = (updatedOptions[optionIndex].votes || 0) + 1;
-            pollDoc.options = updatedOptions;
-
-            // Always persist locally
-            saveLocalStorageData();
-            renderAllViews();
-            showToast(`Vote recorded!`);
-
-            if (!usingLocalStorage) {
-                try {
-                    const pollRef = getPublicDocPath('polls', pollId);
-                    await updateDoc(pollRef, { options: updatedOptions });
-                } catch (err) {
-                    console.warn("Firestore write fallback to local:", err.message);
-                    enableLocalStorageFallback();
-                }
+            try {
+                const pollRef = getPublicDocPath('polls', pollId);
+                await runTransaction(db, async transaction => {
+                    const pollSnapshot = await transaction.get(pollRef);
+                    if (!pollSnapshot.exists()) throw new Error('Poll not found.');
+                    const options = pollSnapshot.data().options || [];
+                    if (!Number.isInteger(optionIndex) || optionIndex < 0 || optionIndex >= options.length) {
+                        throw new Error('That poll option is no longer available.');
+                    }
+                    options[optionIndex].votes = (options[optionIndex].votes || 0) + 1;
+                    transaction.update(pollRef, { options });
+                });
+                showToast('Vote recorded!');
+            } catch (error) {
+                reportFirestoreError('Vote', error);
             }
         };
 
@@ -1019,34 +803,34 @@
 
             if (list.length === 0) {
                 container.innerHTML = `
-                    <div class="md:col-span-2 text-center py-12 bg-white rounded-2xl border border-dashed border-slate-300 p-6">
-                        <i class="fa-solid fa-lightbulb text-3xl text-slate-300 mb-2"></i>
-                        <h4 class="font-bold text-slate-700">No proposals in this section</h4>
-                        <p class="text-xs text-slate-500 mb-4">Be the first student to post an idea here!</p>
-                        <button onclick="openNewIdeaModal()" class="text-xs bg-brand-blue text-white px-4 py-2 rounded-xl font-bold">Submit Idea</button>
+                    <div class="md:col-span-2 text-center py-12 bg-[#fdf4e3] rounded-sm border border-dashed border-[#d6cec0] p-6">
+                        <i class="fa-regular fa-lightbulb text-3xl text-brand-blue mb-3"></i>
+                        <h4 class="font-editorial text-2xl text-brand-darkblue">Nothing on the board yet</h4>
+                        <p class="text-xs text-brand-darkblue mb-4">Be the first to put an idea into motion.</p>
+                        <button onclick="openNewIdeaModal()" class="text-xs bg-brand-yellow hover:bg-brand-gold text-brand-darkblue px-4 py-2.5 rounded-sm font-bold">Share an idea</button>
                     </div>
                 `;
                 return;
             }
 
             container.innerHTML = list.map(item => `
-                <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-start space-x-4">
-                    <button onclick="upvoteIdea('${item.id}')" class="shrink-0 flex flex-col items-center justify-center p-2.5 rounded-xl border bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200 transition-all min-w-[50px]">
-                        <i class="fa-solid fa-chevron-up text-xs text-slate-500"></i>
+                <div class="voice-panel p-4 sm:p-5 flex items-start gap-3">
+                    <button onclick="upvoteIdea('${item.id}')" aria-label="Upvote idea" class="shrink-0 flex flex-col items-center justify-center p-2 border border-[#d6cec0] bg-[#d3dce0] hover:bg-[#fdf4e3] text-brand-darkblue transition-colors min-w-[46px] rounded-sm">
+                        <i class="fa-solid fa-arrow-up text-xs text-brand-blue"></i>
                         <span class="font-display font-black text-sm mt-0.5">${item.upvotes || 0}</span>
                     </button>
 
                     <div class="flex-grow space-y-2">
                         <div class="flex flex-wrap items-center justify-between gap-1">
-                            <span class="text-[11px] font-bold bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-lg border border-slate-200">${item.category}</span>
-                            <span class="text-[10px] font-bold bg-blue-50 text-blue-800 px-2 py-0.5 rounded-full">${item.status || 'Under Review'}</span>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-blue">${item.category}</span>
+                            <span class="text-[10px] font-bold text-brand-darkblue border border-brand-darkblue/30 px-2 py-1 rounded-sm">${item.status || 'Under Review'}</span>
                         </div>
 
-                        <h4 class="font-display font-bold text-slate-900 text-base leading-snug">${item.title}</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed">${item.desc}</p>
+                        <h4 class="font-editorial text-xl text-brand-darkblue leading-snug">${item.title}</h4>
+                        <p class="text-xs text-brand-darkblue leading-relaxed">${item.desc}</p>
 
-                        <div class="flex items-center justify-between pt-2 border-t border-slate-100 text-[11px] text-slate-400">
-                            <span>Posted by <strong class="text-slate-600">${item.author || 'Student'}</strong> (${item.grade || 'KMS'})</span>
+                        <div class="flex items-center justify-between pt-2 border-t border-[#fdf4e3] text-[10px] text-brand-darkblue">
+                            <span>Posted by <strong>${item.author || 'Student'}</strong> (${item.grade || 'KMS'})</span>
                         </div>
                     </div>
                 </div>
@@ -1054,31 +838,21 @@
         }
 
         window.upvoteIdea = async function(ideaId) {
-            if (!currentUser) return;
-            const ideaDoc = studentIdeas.find(i => i.id === ideaId);
-            if (!ideaDoc) return;
-
-            const newVotes = (ideaDoc.upvotes || 0) + 1;
-
-            if (usingLocalStorage) {
-                ideaDoc.upvotes = newVotes;
-                saveLocalStorageData();
-                renderAllViews();
-                showToast('Upvoted idea!');
+            if (!currentUser || !db) {
+                showToast('Sign in with your school account to upvote.');
                 return;
             }
 
             try {
                 const ideaRef = getPublicDocPath('ideas', ideaId);
-                await updateDoc(ideaRef, { upvotes: newVotes });
+                await runTransaction(db, async transaction => {
+                    const ideaSnapshot = await transaction.get(ideaRef);
+                    if (!ideaSnapshot.exists()) throw new Error('Idea not found.');
+                    transaction.update(ideaRef, { upvotes: (ideaSnapshot.data().upvotes || 0) + 1 });
+                });
                 showToast('Upvoted idea!');
             } catch (err) {
-                console.warn("Firestore upvote failed, saving locally:", err.message);
-                enableLocalStorageFallback();
-                ideaDoc.upvotes = newVotes;
-                saveLocalStorageData();
-                renderAllViews();
-                showToast('Upvoted idea!');
+                reportFirestoreError('Upvote', err);
             }
         };
 
@@ -1088,7 +862,10 @@
 
         window.handleNewIdeaSubmit = async function(e) {
             e.preventDefault();
-            if (!currentUser) return;
+            if (!currentUser) {
+                showToast('Sign in with your school account to submit an idea.');
+                return;
+            }
 
             const title = document.getElementById('idea-title').value.trim();
             const desc = document.getElementById('idea-desc').value.trim();
@@ -1098,25 +875,8 @@
 
             if (!title || !desc) return;
 
-            const newIdea = {
-                id: 'idea-' + Date.now(),
-                title,
-                desc,
-                category,
-                author,
-                grade,
-                upvotes: 1,
-                status: 'Under Review',
-                createdAt: Date.now()
-            };
-
-            if (usingLocalStorage) {
-                studentIdeas.unshift(newIdea);
-                saveLocalStorageData();
-                renderAllViews();
-                closeNewIdeaModal();
-                document.getElementById('new-idea-form').reset();
-                showToast('Idea submitted successfully!');
+            if (!db) {
+                showToast('Firebase is not configured. Your idea was not submitted.');
                 return;
             }
 
@@ -1136,82 +896,39 @@
                 document.getElementById('new-idea-form').reset();
                 showToast('Idea submitted successfully!');
             } catch (err) {
-                console.warn("Firestore submit failed, saving locally:", err.message);
-                enableLocalStorageFallback();
-                studentIdeas.unshift(newIdea);
-                saveLocalStorageData();
-                renderAllViews();
-                closeNewIdeaModal();
-                document.getElementById('new-idea-form').reset();
-                showToast('Idea submitted successfully!');
+                reportFirestoreError('Idea submission', err);
             }
-        };
-
-        // Rating Selector Helper
-        window.setRating = function(rating) {
-            selectedRating = rating;
-            const buttons = document.querySelectorAll('#rating-selector .rating-btn');
-            buttons.forEach(btn => {
-                const r = parseInt(btn.getAttribute('data-rating'));
-                if (r === rating) {
-                    btn.classList.add('border-brand-blue', 'bg-blue-50/90', 'ring-2', 'ring-brand-blue/30');
-                    btn.classList.remove('bg-slate-50', 'border-slate-200');
-                } else {
-                    btn.classList.remove('border-brand-blue', 'bg-blue-50/90', 'ring-2', 'ring-brand-blue/30');
-                    btn.classList.add('bg-slate-50', 'border-slate-200');
-                }
-            });
         };
 
         window.handleFeedbackSubmit = async function(e) {
             e.preventDefault();
-            if (!currentUser) return;
+            if (!currentUser) {
+                showToast('Sign in with your school account to send feedback.');
+                return;
+            }
 
             const topic = document.getElementById('fb-topic').value;
             const comments = document.getElementById('fb-comments').value.trim();
 
             if (!topic || !comments) return;
 
-            const newFb = {
-                id: 'fb-' + Date.now(),
-                topic,
-                rating: selectedRating || 3,
-                comments,
-                author: currentUser.displayName || 'Student',
-                createdAt: Date.now()
-            };
-
-            if (usingLocalStorage) {
-                feedbackList.unshift(newFb);
-                saveLocalStorageData();
-                renderAllViews();
-                document.getElementById('feedback-form').reset();
-                setRating(3);
-                showToast('Feedback sent to Council!');
+            if (!db) {
+                showToast('Firebase is not configured. Your feedback was not submitted.');
                 return;
             }
 
             try {
                 await addDoc(getPublicCollPath('feedback'), {
                     topic,
-                    rating: selectedRating || 3,
                     comments,
                     author: currentUser.displayName || 'Student',
                     createdAt: Date.now()
                 });
 
                 document.getElementById('feedback-form').reset();
-                setRating(3);
                 showToast('Feedback sent to Council!');
             } catch (err) {
-                console.warn("Firestore feedback failed, saving locally:", err.message);
-                enableLocalStorageFallback();
-                feedbackList.unshift(newFb);
-                saveLocalStorageData();
-                renderAllViews();
-                document.getElementById('feedback-form').reset();
-                setRating(3);
-                showToast('Feedback sent to Council!');
+                reportFirestoreError('Feedback submission', err);
             }
         };
 
@@ -1223,17 +940,13 @@
             }
 
             container.innerHTML = feedbackList.map(item => {
-                const info = RATING_INFO[item.rating] || RATING_INFO[3];
                 return `
-                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-2">
+                    <div class="bg-white p-4 rounded-sm border border-[#fdf4e3] border-l-2 border-l-brand-blue space-y-2">
                         <div class="flex justify-between items-center text-xs">
                             <span class="font-bold text-brand-blue">${item.topic}</span>
-                            <span class="text-[10px] font-bold ${info.color} px-2 py-0.5 rounded-md border flex items-center space-x-1">
-                                <span>${info.emoji}</span>
-                                <span>${info.label}</span>
-                            </span>
+                            <span class="text-[10px] text-slate-500">${item.author || 'Student'}</span>
                         </div>
-                        <p class="text-xs text-slate-700 italic">"${item.comments}"</p>
+                        <p class="text-xs text-brand-darkblue leading-relaxed">“${item.comments}”</p>
                     </div>
                 `;
             }).join('');
@@ -1249,9 +962,9 @@
             const approved = studentIdeas.filter(i => i.status === 'Approved');
 
             const itemCard = (i) => `
-                <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm space-y-1">
-                    <h5 class="font-bold text-xs text-slate-900">${i.title}</h5>
-                    <p class="text-[11px] text-slate-500">${i.desc}</p>
+                <div class="bg-white p-3.5 rounded-sm border border-[#fdf4e3] space-y-1">
+                    <h5 class="font-editorial text-lg text-brand-darkblue">${i.title}</h5>
+                    <p class="text-[11px] text-brand-darkblue">${i.desc}</p>
                 </div>
             `;
 
@@ -1290,22 +1003,8 @@
                 return;
             }
 
-            const newPoll = {
-                id: 'poll-' + Date.now(),
-                type,
-                title,
-                options,
-                active: true,
-                createdAt: Date.now()
-            };
-
-            activePolls.unshift(newPoll);
-            saveLocalStorageData();
-            renderAllViews();
-            document.getElementById('admin-create-poll-form').reset();
-            showToast('Poll launched to student portal!');
-
-            if (usingLocalStorage) {
+            if (!db) {
+                showToast('Firebase is not configured. The poll was not created.');
                 return;
             }
 
@@ -1317,11 +1016,10 @@
                     active: true,
                     createdAt: Date.now()
                 });
+                document.getElementById('admin-create-poll-form').reset();
+                showToast('Poll launched to student portal!');
             } catch (err) {
-                console.warn("Firestore create poll failed, saving locally:", err.message);
-                enableLocalStorageFallback();
-                saveLocalStorageData();
-                renderAllViews();
+                reportFirestoreError('Poll creation', err);
             }
         };
 
@@ -1351,23 +1049,11 @@
         window.deletePoll = async function(pollId) {
             if (!isAdmin) return;
 
-            activePolls = activePolls.filter(poll => poll.id !== pollId);
-            saveLocalStorageData();
-            renderAllViews();
-            showToast('Poll archived');
-
-            if (usingLocalStorage) {
-                return;
-            }
-
             try {
                 await deleteDoc(getPublicDocPath('polls', pollId));
                 showToast('Poll archived');
             } catch(e) {
-                console.warn("Firestore delete poll failed, deleting locally:", e.message);
-                enableLocalStorageFallback();
-                saveLocalStorageData();
-                renderAllViews();
+                reportFirestoreError('Poll archive', e);
             }
         };
 
@@ -1389,9 +1075,9 @@
                       <span class="text-[10px] font-bold text-slate-600 bg-white border border-slate-200 rounded-full px-2.5 py-1 shrink-0">${i.status || 'Under Review'}</span>
                     </div>
                     <div class="flex flex-wrap items-center gap-1.5">
-                        <button onclick="updateIdeaStatus('${i.id}', 'Under Review')" class="text-[10px] font-bold bg-amber-100 text-amber-900 px-2 py-1 rounded">Review</button>
-                        <button onclick="updateIdeaStatus('${i.id}', 'In Progress')" class="text-[10px] font-bold bg-blue-100 text-blue-900 px-2 py-1 rounded">Progress</button>
-                        <button onclick="updateIdeaStatus('${i.id}', 'Approved')" class="text-[10px] font-bold bg-emerald-100 text-emerald-900 px-2 py-1 rounded">Approve</button>
+                        <button onclick="updateIdeaStatus('${i.id}', 'Under Review')" class="text-[10px] font-bold bg-[#d3dce0] text-brand-darkblue px-2 py-1 rounded">Review</button>
+                        <button onclick="updateIdeaStatus('${i.id}', 'In Progress')" class="text-[10px] font-bold bg-[#fdf4e3] text-brand-darkblue px-2 py-1 rounded">Progress</button>
+                        <button onclick="updateIdeaStatus('${i.id}', 'Approved')" class="text-[10px] font-bold bg-[#d6cec0] text-brand-darkblue px-2 py-1 rounded">Approve</button>
                     </div>
                 </div>
             `).join('');
@@ -1405,7 +1091,6 @@
             }
 
             container.innerHTML = feedbackList.map(item => {
-                const rating = RATING_INFO[item.rating] || RATING_INFO[3];
                 const status = item.status || 'New';
                 const date = item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'Date not recorded';
                 return `
@@ -1416,14 +1101,13 @@
                                 <p class="text-sm text-slate-700 mt-2 whitespace-pre-wrap">${item.comments}</p>
                             </div>
                             <div class="flex items-center gap-2 shrink-0">
-                                <span class="text-xs font-bold px-2 py-1 rounded-full border ${rating.color}">${rating.emoji} ${rating.label}</span>
                                 <span class="text-[10px] font-bold text-slate-600 bg-white border border-slate-200 rounded-full px-2.5 py-1">${status}</span>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-1.5">
                             <button onclick="updateFeedbackStatus('${item.id}', 'New')" class="text-[10px] font-bold bg-slate-200 text-slate-800 px-2 py-1 rounded">Mark New</button>
-                            <button onclick="updateFeedbackStatus('${item.id}', 'Reviewed')" class="text-[10px] font-bold bg-blue-100 text-blue-900 px-2 py-1 rounded">Mark Reviewed</button>
-                            <button onclick="updateFeedbackStatus('${item.id}', 'Addressed')" class="text-[10px] font-bold bg-emerald-100 text-emerald-900 px-2 py-1 rounded">Mark Addressed</button>
+                            <button onclick="updateFeedbackStatus('${item.id}', 'Reviewed')" class="text-[10px] font-bold bg-[#fdf4e3] text-brand-darkblue px-2 py-1 rounded">Mark Reviewed</button>
+                            <button onclick="updateFeedbackStatus('${item.id}', 'Addressed')" class="text-[10px] font-bold bg-[#d6cec0] text-brand-darkblue px-2 py-1 rounded">Mark Addressed</button>
                         </div>
                     </div>
                 `;
@@ -1439,52 +1123,22 @@
         window.updateFeedbackStatus = async function(feedbackId, newStatus) {
             if (!isAdmin) return;
 
-            const feedback = feedbackList.find(item => item.id === feedbackId);
-            if (feedback) feedback.status = newStatus;
-            saveLocalStorageData();
-            renderAllViews();
-
-            if (usingLocalStorage) {
-                showToast(`Feedback marked ${newStatus.toLowerCase()}`);
-                return;
-            }
-
             try {
                 await updateDoc(getPublicDocPath('feedback', feedbackId), { status: newStatus });
                 showToast(`Feedback marked ${newStatus.toLowerCase()}`);
             } catch(e) {
-                console.warn("Firestore feedback update failed, updating locally:", e.message);
-                saveLocalStorageData();
-                enableLocalStorageFallback();
-                saveLocalStorageData();
-                renderAllViews();
-                showToast(`Feedback marked ${newStatus.toLowerCase()}`);
+                reportFirestoreError('Feedback update', e);
             }
         };
 
         window.updateIdeaStatus = async function(ideaId, newStatus) {
             if (!isAdmin) return;
 
-            const idea = studentIdeas.find(i => i.id === ideaId);
-            if (idea) idea.status = newStatus;
-            saveLocalStorageData();
-            renderAllViews();
-
-            if (usingLocalStorage) {
-                showToast(`Idea updated to ${newStatus}`);
-                return;
-            }
-
             try {
                 await updateDoc(getPublicDocPath('ideas', ideaId), { status: newStatus });
                 showToast(`Idea updated to ${newStatus}`);
             } catch(e) {
-                console.warn("Firestore update status failed, updating locally:", e.message);
-                saveLocalStorageData();
-                enableLocalStorageFallback();
-                saveLocalStorageData();
-                renderAllViews();
-                showToast(`Idea updated to ${newStatus}`);
+                reportFirestoreError('Idea update', e);
             }
         };
 
@@ -1502,6 +1156,8 @@
         };
 
         window.switchTab = function(tabId) {
+            if (tabId === 'admin' && !isAdmin) return;
+
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             const activeSec = document.getElementById('tab-' + tabId);
             if (activeSec) activeSec.classList.remove('hidden');

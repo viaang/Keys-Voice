@@ -1,0 +1,50 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSchoolAccount() {
+      return request.auth != null
+        && request.auth.token.email is string
+        && request.auth.token.email_verified == true
+        && request.auth.token.email.matches('(?i)^[^@]+@keysschool[.]org$');
+    }
+
+    function isAdmin() {
+      return isSchoolAccount()
+        && request.auth.token.email in [
+          'viaang7@keysschool.org',
+          'cassiag7@keysschool.org',
+          'mjarrufatmarques@keysschool.org',
+          'dlieu@keysschool.org'
+        ];
+    }
+
+    match /artifacts/{appId}/public/data/polls/{pollId} {
+      allow read: if isSchoolAccount();
+      allow create, delete: if isAdmin();
+      allow update: if isAdmin()
+        || (isSchoolAccount()
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['options'])
+          && request.resource.data.options is list
+          && request.resource.data.options.size() == resource.data.options.size());
+    }
+
+    match /artifacts/{appId}/public/data/ideas/{ideaId} {
+      allow read: if isSchoolAccount();
+      allow create: if isSchoolAccount();
+      allow delete: if isAdmin();
+      allow update: if isAdmin()
+        || (isSchoolAccount()
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['upvotes'])
+          && request.resource.data.upvotes is int
+          && resource.data.upvotes is int
+          && request.resource.data.upvotes == resource.data.upvotes + 1);
+    }
+
+    match /artifacts/{appId}/public/data/feedback/{feedbackId} {
+      allow read: if isSchoolAccount();
+      allow create: if isSchoolAccount();
+      allow update, delete: if isAdmin();
+    }
+  }
+}
